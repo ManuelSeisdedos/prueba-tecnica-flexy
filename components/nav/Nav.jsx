@@ -4,8 +4,12 @@ const Nav = () => {
     return (
         <View>
             <Image
+            source={require('../../images/MarcaFlexyPNG.png')}
             ></Image>
-            <View></View>
+            <Image
+            source={require('../../images/menuPNG.png')}
+            ></Image>
+            
         </View>
     )
 }

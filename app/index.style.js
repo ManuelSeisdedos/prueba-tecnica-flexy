@@ -6,5 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         backgroundColor: 'white'
-    },
+    }
 })
+
+export default styles

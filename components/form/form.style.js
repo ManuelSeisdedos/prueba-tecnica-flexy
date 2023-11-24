@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 30,
-        paddingTop: 30,
-        gap: 20,
+        paddingTop: 50,
+        gap: 24,
         backgroundColor: 'white',
         height: '100%',
         width: '100%'
@@ -53,9 +53,17 @@ const styles = StyleSheet.create({
         opacity: 0.5
     },
     button: {
+        textAlign: 'center',
         borderRadius: 8,
-        width: 1,
-        height: 21
+        backgroundColor: '#7065F0',
+        height: 50,
+        justifyContent: 'center',
+        
+    },
+    textbtn:{
+        textAlign: "center",
+        color: '#ffffff',
+        fontSize: 16
     },
     text: {
         textAlign: "center"
