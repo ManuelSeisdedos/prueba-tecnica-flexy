@@ -7,9 +7,13 @@ const Home  = () => {
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 720px)'
       })
+    const isMobile = useMediaQuery ({
+        query: '(max-width: 719px)'
+    })
 
     return (
     <View style={styles.page}>
+        <View style={styles.layout}> 
         <Stack.Screen 
         style={styles.container}
         options={{
@@ -18,13 +22,14 @@ const Home  = () => {
                 <Image dimension='50%' source={require('../images/MarcaFlexyPNG.png')}/>
             ),
             headerRight: () => 
-                {isDesktopOrLaptop && <Image source={require('../images/menuPNG.png')}/> }
+                {isMobile && <Image source={require('../images/menuPNG.png')}/>} 
         }}
         />
-        <View style={styles.layout}> 
+        
             <Form ></Form>
+        </View> 
             {isDesktopOrLaptop && <Image style={styles.img} source={require('../images/iniciasesion.png')}/>}
-        </View>
+        
     </View>
     
 )}

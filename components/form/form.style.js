@@ -6,30 +6,26 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         gap: 24,
         backgroundColor: 'white',
-    },
-    detalle:{
-        justifyContent: 'center',
-    
+        height: '100%',
+        width: '100%'
     },
     title:{
         fontSize: 32,
         fontWeight: 'bold',
         textAlign: "center",
-        fontStyle: 'normal',
+        fontStyle: 'normal'
     
     },
     subtitle: {
         textAlign: "center",
         fontSize: 16,
-        opacity: 0.5,
-        alignItems: 'center'
+        opacity: 0.5
     }, 
     subirimg: {
         flex: 1,
         flexDirection: 'row',       
         position: 'relative' ,
-        marginLeft: 5       ,
-        
+        marginLeft: 5        
     },
     img: {
         width: 20,

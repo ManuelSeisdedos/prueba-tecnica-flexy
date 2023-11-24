@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
     page: {
         maxWidth: '100%',
         maxHeight: '100%',
+        flex: 1,
+        flexDirection: 'row'
     },
     container: {
         borderBottomWidth: 2,
@@ -14,15 +16,11 @@ const styles = StyleSheet.create({
         position: 'relative'
     },
     layout: {
-        display: 'flex',
-        flex: 1,
-      
-    flexDirection: 'row',
-      
-        maxWidth: '100%'
+    
+    
     },
     img: {
-        resizeMode: '50%',
+        resizeMode: 'stretch',
     }
 })
 
