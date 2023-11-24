@@ -2,10 +2,14 @@ import { View, Text, Image } from 'react-native'
 import Form from '../components/form/Form.jsx'
 import styles from './index.style.js'
 import {Stack} from 'expo-router'
-import Nav from '../components/nav/Nav.jsx'
+import { useMediaQuery } from "react-responsive";
 const Home  = () => {
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 720px)'
+      })
+
     return (
-    <View>
+    <View style={styles.page}>
         <Stack.Screen 
         style={styles.container}
         options={{
@@ -13,13 +17,14 @@ const Home  = () => {
             headerLeft: () => (
                 <Image dimension='50%' source={require('../images/MarcaFlexyPNG.png')}/>
             ),
-            headerRight: () => (
-                <Image dimension='100%' source={require('../images/menuPNG.png')}/>
-            )
+            headerRight: () => 
+                {isDesktopOrLaptop && <Image source={require('../images/menuPNG.png')}/> }
         }}
-        />    
-        
-        <Form></Form>
+        />
+        <View style={styles.layout}> 
+            <Form ></Form>
+            {isDesktopOrLaptop && <Image style={styles.img} source={require('../images/iniciasesion.png')}/>}
+        </View>
     </View>
     
 )}

@@ -1,8 +1,17 @@
-import React from 'react'
+import React , { useState }from 'react'
 import { View, TextInput, Text, Button, Alert, Image, TouchableOpacity} from 'react-native'
 import styles from './form.style.js'
 
 const Form = () => {
+    const [errors, setErrors] = useState({validate: true})
+    
+    const [input, setInput] = useState({
+        nombre: '',
+        telefono: '',
+        email: '',
+        contraseña: ''
+    })
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}> ¡Bienvenido! </Text>
@@ -23,17 +32,25 @@ const Form = () => {
             </View>
             <TextInput
             style={styles.input}
+            name='nombre'
+            value={input.nombre}
             placeholder='Nombre y Apellido'
             />
             <TextInput
+            name='telefono'
+            value={input.telefono}
             style={styles.input}
             placeholder='+54 9 221 000 0000'
             />
             <TextInput
+            name='email'
+            value={input.email}
             style={styles.input}
             placeholder='hola@tuemail.com'
             />
             <TextInput
+            name='contraseña'
+            value={input.contraseña}
             style={styles.input}
             placeholder='Ingresá tu contraseña'
             />
