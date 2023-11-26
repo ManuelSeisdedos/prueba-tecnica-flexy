@@ -2,9 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: 30,
-        paddingTop: 50,
-        gap: 24,
+        paddingHorizontal: 50,
+        gap: 13,
         backgroundColor: 'white',
         height: '100%',
         width: '100%'
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         textAlign: "center",
-        fontSize: 16,
+        fontSize: 14,
         opacity: 0.5
     }, 
     subirimg: {
@@ -27,9 +26,12 @@ const styles = StyleSheet.create({
         position: 'relative' ,
         marginLeft: 5        
     },
+    errors:{
+        fontSize: 14,
+        color: 'red'
+    },
     img: {
-        width: 20,
-        height: 20,
+        
         borderWidth: 2,
         borderColor:"#E0DEF7",
         borderRadius: 8,

@@ -1,7 +1,8 @@
 import React , { useState }from 'react'
-import { View, TextInput, Text, Button, Alert, Image, TouchableOpacity} from 'react-native'
+import { View, TextInput, Text, Button, Alert, Image, Pressable} from 'react-native'
 import styles from './form.style.js'
-
+import { useMediaQuery } from 'react-responsive'
+import validate from '../../controllers/validator.js'
 const Form = () => {
     const [errors, setErrors] = useState({validate: true})
     
@@ -12,7 +13,39 @@ const Form = () => {
         contraseña: ''
     })
 
+
+    const handleChange = (e) => {
+        setInput({
+          ...input,
+          [e.id]: e.value,
+        });
+        setErrors(
+          validate({
+            ...input,
+            [e.id]: e.value,
+          })
+        );
+      };
+
+    const handleSubmit = (e) => {
+    e.preventDefault();   
+    setInput({
+        nombre: '',
+        telefono: '',
+        email: '',
+        contraseña: ''
+    });
+    };
+    const isMobile = useMediaQuery ({
+        query: '(max-width: 719px)'
+    })
+
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 720px)'
+      })
+
     return (
+       
         <View style={styles.container}>
             <Text style={styles.title}> ¡Bienvenido! </Text>
             <Text style={styles.subtitle}> Convertite ahora en un agente Flexy. </Text>
@@ -30,39 +63,62 @@ const Form = () => {
                     </View>    
                     <Text style={styles.textimg} > Subí tu foto de perfil </Text>
             </View>
+            <View>
             <TextInput
             style={styles.input}
-            name='nombre'
+           
+            id='nombre'
             value={input.nombre}
             placeholder='Nombre y Apellido'
+            onChangeText={(e) => handleChange({id:'nombre',
+            value: e})}
+            
             />
+            {errors.nombre !== '' && <Text style={styles.errors}>{errors.nombre} </Text>}
+            </View>
+            <View>
             <TextInput
-            name='telefono'
+            id='telefono'
             value={input.telefono}
             style={styles.input}
             placeholder='+54 9 221 000 0000'
+            onChangeText={(e) => handleChange({id:'telefono', value: e})}
             />
+            {errors.telefono !== '' && <Text style={styles.errors}>{errors.telefono} </Text>}
+            </View>
+            <View>
             <TextInput
-            name='email'
+            id='email'
             value={input.email}
             style={styles.input}
             placeholder='hola@tuemail.com'
+            onChangeText={(e) => handleChange({id:'email', value: e})}
             />
+            {errors.email !== '' && <Text style={styles.errors}>{errors.email} </Text>}
+            </View>
+            <View>
             <TextInput
-            name='contraseña'
+            id='contraseña'
             value={input.contraseña}
             style={styles.input}
             placeholder='Ingresá tu contraseña'
+            onChangeText={(e) => handleChange({id:'contraseña', value: e})}
             />
-            <Text style={styles.text}>
+            {errors.contraseña !== '' && <Text style={styles.errors}>{errors.contraseña} </Text>}
+            </View>
+            {isMobile && <Text style={styles.text}>
+                ¿Olvidaste tu contraseña?
+            </Text> }
+            {isDesktopOrLaptop && <Text style={styles.text}>
                 Debe tener al menos 8 caracteres.
-            </Text>
-            <TouchableOpacity 
+            </Text>}
+            <Pressable 
             style={styles.button}
+            disabled={errors.validate}
             onPress={() => Alert.alert('Su usuario se registró exitosamente.')}
             >
                 <Text style={styles.textbtn}> Registrate </Text>
-            </TouchableOpacity>
+            </Pressable>
             <Text style={styles.text}>
                 ¿Ya tenes una cuenta? <Text style={{fontWeight: 'bold'}}>Iniciá sesión</Text> 
             </Text>

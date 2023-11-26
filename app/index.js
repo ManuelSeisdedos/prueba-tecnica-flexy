@@ -8,28 +8,30 @@ const Home  = () => {
         query: '(min-width: 720px)'
       })
     const isMobile = useMediaQuery ({
-        query: '(max-width: 719px)'
+        query: '(max-width: 719px)',
+        query: '(min-width: 0px)'
     })
 
     return (
     <View style={styles.page}>
+        {!isDesktopOrLaptop && <Form style={styles.mobform}></Form>}
         <View style={styles.layout}> 
         <Stack.Screen 
         style={styles.container}
         options={{
             headerTitle: '' ,
             headerLeft: () => (
-                <Image dimension='50%' source={require('../images/MarcaFlexyPNG.png')}/>
+                <Image source={require('../images/MarcaFlexyPNG.png')}/>
             ),
             headerRight: () => 
-                {isMobile && <Image source={require('../images/menuPNG.png')}/>} 
+                {!isDesktopOrLaptop && <Image source={require('../images/menuPNG.png')}/>} 
         }}
         />
-        
-            <Form ></Form>
+        {isDesktopOrLaptop && <Form style={styles.layout}></Form>  }
         </View> 
-            {isDesktopOrLaptop && <Image style={styles.img} source={require('../images/iniciasesion.png')}/>}
-        
+        <View style={styles.layout}>
+        {isDesktopOrLaptop && <Image style={styles.img} source={require('../images/iniciasesion.png')}/>}
+        </View>
     </View>
     
 )}

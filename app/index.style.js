@@ -5,22 +5,31 @@ const styles = StyleSheet.create({
     page: {
         maxWidth: '100%',
         maxHeight: '100%',
-        flex: 1,
-        flexDirection: 'row'
+        width: '100%',
+        flex: 2,
+        flexDirection: 'row',
+     
     },
     container: {
         borderBottomWidth: 2,
-        flex: 1,
+        display: 'flex',
         flexDirection: 'row',
         backgroundColor: 'red',
-        position: 'relative'
+        maxWidth: '100%',
+        width: '100%'
     },
     layout: {
-    
-    
-    },
+        resizeMode: 'scale',
+        width: '50%'
+    }, 
+    mobform: {
+        width: '100%',
+    }, 
     img: {
-        resizeMode: 'stretch',
+       maxHeight: '100%',
+       maxWidth: '100%',
+       position: 'relative',
+       resizeMode: 'cover',
     }
 })
 
