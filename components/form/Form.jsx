@@ -1,5 +1,5 @@
 import React , { useState }from 'react'
-import { View, TextInput, Text, Button, Alert, Image, Pressable} from 'react-native'
+import { View, TextInput, Text, Image, Pressable} from 'react-native'
 import styles from './form.style.js'
 import { useMediaQuery } from 'react-responsive'
 import validate from '../../controllers/validator.js'
@@ -28,13 +28,15 @@ const Form = () => {
       };
 
     const handleSubmit = (e) => {
-    e.preventDefault();   
+       
     setInput({
         nombre: '',
         telefono: '',
         email: '',
         contraseña: ''
     });
+    setErrors({validate: true})
+    alert('Se registró exitosamente.')
     };
     const isMobile = useMediaQuery ({
         query: '(max-width: 719px)'
@@ -115,7 +117,7 @@ const Form = () => {
             <Pressable 
             style={styles.button}
             disabled={errors.validate}
-            onPress={() => Alert.alert('Su usuario se registró exitosamente.')}
+            onPress={() => handleSubmit()}
             >
                 <Text style={styles.textbtn}> Registrate </Text>
             </Pressable>
