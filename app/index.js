@@ -4,13 +4,10 @@ import styles from './index.style.js'
 import {Stack} from 'expo-router'
 import { useMediaQuery } from "react-responsive";
 const Home  = () => {
+    
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 720px)'
       })
-    const isMobile = useMediaQuery ({
-        query: '(max-width: 719px)',
-        query: '(min-width: 0px)'
-    })
 
     return (
     <View style={styles.page}>

@@ -1,7 +1,6 @@
 const validatorFunc = (input) => {
     let errors = {validate: true}
-    console.log(input)
-    console.log(errors)
+    
     if (!input.nombre) {
         errors.nombre = 'Se necesita un Nombre y Apellido'
     }
@@ -33,7 +32,7 @@ const validatorFunc = (input) => {
     ) {
         errors.validate = false
     }
-    console.log(errors)
+    
     return errors 
 
 }

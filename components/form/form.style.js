@@ -24,14 +24,13 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',       
         position: 'relative' ,
-        marginLeft: 5        
+        marginLeft: 5 
     },
     errors:{
         fontSize: 14,
         color: 'red'
     },
     img: {
-        
         borderWidth: 2,
         borderColor:"#E0DEF7",
         borderRadius: 8,
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
         marginLeft: 30
     },
     imgplus:{
+        
          marginLeft: 10
     },
     input: {

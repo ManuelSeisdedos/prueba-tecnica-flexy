@@ -3,6 +3,8 @@ import { View, TextInput, Text, Image, Pressable} from 'react-native'
 import styles from './form.style.js'
 import { useMediaQuery } from 'react-responsive'
 import validate from '../../controllers/validator.js'
+import { showAlert1 } from '../../helpers/alerts.js'
+
 const Form = () => {
     const [errors, setErrors] = useState({validate: true})
     
@@ -12,7 +14,13 @@ const Form = () => {
         email: '',
         contraseña: ''
     })
-
+    const isMobile = useMediaQuery ({
+        query: '(max-width: 719px)'
+    })
+    
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 720px)'
+      })
 
     const handleChange = (e) => {
         setInput({
@@ -36,15 +44,9 @@ const Form = () => {
         contraseña: ''
     });
     setErrors({validate: true})
-    alert('Se registró exitosamente.')
+    {isDesktopOrLaptop && alert('Usuario Registrado con éxito.')}
+    {!isDesktopOrLaptop && showAlert1()}
     };
-    const isMobile = useMediaQuery ({
-        query: '(max-width: 719px)'
-    })
-
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 720px)'
-      })
 
     return (
        
@@ -108,7 +110,7 @@ const Form = () => {
             />
             {errors.contraseña !== '' && <Text style={styles.errors}>{errors.contraseña} </Text>}
             </View>
-            {isMobile && <Text style={styles.text}>
+            {!isDesktopOrLaptop && <Text style={styles.text}>
                 ¿Olvidaste tu contraseña?
             </Text> }
             {isDesktopOrLaptop && <Text style={styles.text}>

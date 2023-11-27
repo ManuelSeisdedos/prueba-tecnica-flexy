@@ -14,9 +14,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         display: 'flex',
         flexDirection: 'row',
-        backgroundColor: 'red',
-        maxWidth: '100%',
-        width: '100%'
+
     },
     layout: {
         resizeMode: 'scale',
